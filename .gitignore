@@ -1,0 +1,7 @@
+# Ignore testData directory
+/testData
+
+# Ignore user templates (but keep default)
+/templates/**
+!/templates/default.css
+!/templates/default.njk

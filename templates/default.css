@@ -1,0 +1,56 @@
+.MMM-UKLiveTrainDepartures td {
+	padding-right: 10px;
+}
+
+.MMM-UKLiveTrainDepartures .header td {
+	border-bottom: 1px solid #999;
+}
+
+.MMM-UKLiveTrainDepartures .nopadding {
+	padding: inherit;
+}
+
+.MMM-UKLiveTrainDepartures .border-left {
+	border-left: 1px solid #999;
+	padding-left: 10px;
+}
+
+.MMM-UKLiveTrainDepartures .expected {
+	font-style: italic;
+}
+
+.MMM-UKLiveTrainDepartures .platform {
+	text-align: center;
+}
+
+.MMM-UKLiveTrainDepartures .status {
+	text-transform: capitalize;
+}
+
+.MMM-UKLiveTrainDepartures tr.cancelled {
+	color: red;
+}
+
+.MMM-UKLiveTrainDepartures tr.cancelled td {
+	position: relative;
+}
+
+.MMM-UKLiveTrainDepartures tr.cancelled td:before {
+	content: " ";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	border-bottom: 1px solid red;
+	width: 100%;
+}
+
+.MMM-UKLiveTrainDepartures .late,
+.MMM-UKLiveTrainDepartures .bus {
+	color: orange;
+}
+
+.MMM-UKLiveTrainDepartures .lastUpdated {
+	font-size: 10px;
+	line-height: 10px;
+	padding-top: 5px;
+}

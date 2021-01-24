@@ -1,0 +1,62 @@
+{# If there are any config errors, show them here #}
+{% if configErrors %}
+
+	{% for error in configErrors %}
+		<div class="xsmall" style="color: red">{{ error }}</div>
+	{% endfor %}
+
+{# Show the trains table (when ready) #}
+{% elif trains %}
+
+	<table class="small light">
+		<tr class="light dimmed header" style="border: 1px solid green;">
+			<td>Pl.</td>
+			<td>Destination</td>
+			<td>Dep.</td>
+			<td>Exp.</td>
+			<td>Status</td>
+			<td class="border-left">Arr.</td>
+			<td class="nopadding">Pl.</td>
+		</tr>
+
+		{% for t in trains %}
+			<tr class="{{ "cancelled" if t.status == "cancelled" }}">
+				<td class="platform">
+					{% if t.bus %}
+						<span class="fa fas fa-bus"></span>
+					{% else %}
+						{{ t.departure.platform }}
+					{% endif %}
+				</td>
+				<td class="regular">{{ t.destination }}</td>
+				<td class="">{{ t.departure.schedTime | toLocal }}</td>
+				<td class="expected {{ "late" if t.status == "late" }}">{{ t.departure.liveTime | toLocal }}</td>
+				<td class="status {{ t.status }}">
+					{% if t.status == "late" %}{{ t.departure.delay }}m {% endif %}{{ t.status }}
+				</td>
+				<td class="border-left {{ "late" if t.status == "late" }}">
+					{%if t.arrival.liveTime %}
+						{% if t.arrival.liveTime.isValid() %}
+							<span class="expected">{{ t.arrival.liveTime | toLocal }}</span>
+						{% endif %}
+					{% else %}
+						{{ t.arrival.schedTime | toLocal }}
+					{% endif %}
+				</td>
+				<td class="nopadding platform">{{ t.arrival.platform }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	{% if trains.length == 0 %}
+		<div class="small light dimmed">No upcoming trains.</div>
+	{% endif %}
+
+	<div class="xsmall dimmed lastUpdated">Last updated: {{ lastUpdated | toLocal }}</div>
+
+{# Otherwise, show loading message until the trains have loaded #}
+{% else %}
+
+	<div class="small light">Loading trains...</div>
+	
+{% endif %}
