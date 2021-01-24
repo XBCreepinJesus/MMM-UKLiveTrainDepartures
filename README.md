@@ -1,6 +1,6 @@
 # MMM-UKLiveTrainDepartures
 
-A module for MagicMirror² showing the next *direct* trains calling at the destination from a given origin. Note this is not a journey planner - it can only show trains that both start and stop/terminate at given stations.
+A module for MagicMirror² showing the next *direct* trains calling at the destination from a given origin. Data is sourced from the [Transport API](https://www.transportapi.com/) and you [will need an account](#transport-api-setup) on there (free) to use their API data. Note this is not a journey planner - it can only show trains that both start and stop/terminate at given stations.
 
 >![](/screenshots/demo.png)<br>Next 4 trains to Reading from London Paddington.
 
