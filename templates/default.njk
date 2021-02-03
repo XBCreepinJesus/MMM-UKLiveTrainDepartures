@@ -32,7 +32,7 @@
 				<td class="">{{ t.departure.schedTime | toLocal }}</td>
 				<td class="expected {{ "late" if t.status == "late" }}">{{ t.departure.liveTime | toLocal }}</td>
 				<td class="status {{ t.status }}">
-					{% if t.status == "late" %}{{ t.departure.delay }}m {% endif %}{{ t.status }}
+					{% if t.status == "late" and t.departure.delay > 0 %}{{ t.departure.delay }}m {% endif %}{{ t.status }}
 				</td>
 				<td class="border-left {{ "late" if t.status == "late" }}">
 					{%if t.arrival.liveTime %}
