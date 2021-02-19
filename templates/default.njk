@@ -28,7 +28,7 @@
 						{{ t.departure.platform }}
 					{% endif %}
 				</td>
-				<td class="regular">{{ t.destination }}</td>
+				<td class="regular bright">{{ t.destination }}</td>
 				<td class="">{{ t.departure.schedTime | toLocal }}</td>
 				<td class="expected {{ "late" if t.status == "late" }}">{{ t.departure.liveTime | toLocal }}</td>
 				<td class="status {{ t.status }}">
