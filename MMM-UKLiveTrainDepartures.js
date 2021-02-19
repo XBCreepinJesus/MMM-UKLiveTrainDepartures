@@ -30,7 +30,6 @@ Module.register("MMM-UKLiveTrainDepartures", {
 
 	// Storage for trains collection
 	trains: null,
-	maxTrains: null,
 
 	// Last updated time
 	lastUpdated: null,
@@ -195,7 +194,6 @@ Module.register("MMM-UKLiveTrainDepartures", {
 		return {
 			config: this.config,
 			trains: this.trains,
-			maxTrains: this.maxTrains,
 			lastUpdated: this.lastUpdated,
 			configErrors: this.configErrors
 		};
